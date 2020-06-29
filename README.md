@@ -21,7 +21,7 @@ You can connect to the API by using CURL
 
 Request
 ```sh
-$ curl 'http://localhost:3000/searches?search=avengers'
+$ curl 'https://api-movie-search.herokuapp.com/searches?search=avengers'
 ```
 Response
 ```sh
@@ -41,7 +41,7 @@ By adding `sort=true` you can sort by popularity
 
 Request
 ```sh
-$ curl 'http://localhost:3000/searches?search=avengers&sort=true'
+$ curl 'https://api-movie-search.herokuapp.com/searches?search=avengers&sort=true'
 ```
 Response
 ```sh
@@ -71,7 +71,7 @@ Response
 #### Creating a Movie
 Request
 ```sh
-$ curl -d "title=summer time&popularity=15" -X POST 'http://localhost:3000/movies'
+$ curl -d "title=summer time&popularity=15" -X POST 'https://api-movie-search.herokuapp.com/movies'
 ```
 Response
 ```sh
@@ -80,7 +80,7 @@ Response
 #### Updating a Movie
 Request
 ```sh
-$ curl -d "title=Mid July&popularity=15" -X PUT 'http://localhost:3000/movies/8'
+$ curl -d "title=Mid July&popularity=15" -X PUT 'https://api-movie-search.herokuapp.com/movies/8'
 ```
 Response
 ```sh
@@ -89,7 +89,7 @@ Response
 #### Deleting a Movie
 Request
 ```sh
-$ curl -X DELETE 'http://localhost:3000/movies/8'
+$ curl -X DELETE 'https://api-movie-search.herokuapp.com/movies/8'
 ```
 Response
 ```sh
