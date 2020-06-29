@@ -3,22 +3,20 @@
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
-Things you may want to cover:
+* For this challenge I used https://developers.themoviedb.org API, This API gives access to millions of movies and TV shows
 
-* Ruby version
+* I completed the following
 
-* System dependencies
+* Created a rails api using --api flag
+* Database contains Search model to record searches also each search needs to be unique, if a search has been done before, the search will return an error message saying "Search has already been used".
+* Ability to use filters on the search
+* You can create new movies to store locally
+* You can delete the movies you create
+* You can edit the movies you create
 
-* Configuration
+* curl 'http://localhost:3000/searches?search=win&sort=true'
 
-* Database creation
 
-* Database initialization
 
-* How to run the test suite
+* Spec tests to confirm the API is successful
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
