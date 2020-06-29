@@ -12,21 +12,20 @@ class SearchesController < ApplicationController
 
 	# Store Record of search string & check if duplicate
 	search = Search.create(search_text: params["search"])
-	if !search.valid?
-		render json: { :error => "This search is a duplicate" }
-		return false
+	unless search.valid?
+	  render json: {status: "error", code: 400, message: "This is a duplicate search"}
+	  return false
 	end
 
 	# Making a request with HTTParty to the Base uri and the string for the search.
 	response = HTTParty.get(BASE_URI + params["search"])
 	@movies = response["results"]
-	# We don't need all the extra information that the API provides, only title and popularity of movie
+
+	# We don't need the extra information that the API provides, only title and popularity of movie
 	@movies.map! {|movie| {title: movie["title"], popularity: movie["popularity"]}}
 	# Sort if requested
 	sort_movies if params[:sort]
 
-	# Return movies
-	#put this in a concern
 	render json: JSON.pretty_generate(@movies)
   end
 
