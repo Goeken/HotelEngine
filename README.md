@@ -16,6 +16,8 @@ application up and running.
 
 * curl 'http://localhost:3000/searches?search=win&sort=true'
 
+* Ensure the uniqueness of the search is true or else return message
+
 
 
 * Spec tests to confirm the API is successful

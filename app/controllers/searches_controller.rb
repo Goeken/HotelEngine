@@ -5,13 +5,17 @@ class SearchesController < ApplicationController
   BASE_URI = 'https://api.themoviedb.org/3/search/movie?api_key=' + Rails.application.credentials.dig(:movie_api, :access_key) + '&language=en-US&include_adult=false&query='
 	
   # Index method. This will handle the search requests
-  # Allows search string and filters
+  # Allows search string and filter
   def index
     # We want to make sure there's a search param present
 	return false unless params["search"]
 
 	# Store Record of search string & check if duplicate
-	
+	search = Search.create(search_text: params["search"])
+	if !search.valid?
+		render json: { :error => "This search is a duplicate" }
+		return false
+	end
 
 	# Making a request with HTTParty to the Base uri and anything that is added as a param for the search.
 	response = HTTParty.get(BASE_URI + params["search"])
