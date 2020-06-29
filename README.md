@@ -95,3 +95,10 @@ Response
 ```sh
 {"status":"ok","code":200,"message":"Movie deleted successfully"}
 ```
+
+---
+#### Things to note
+- Any movie added to the database will appear in the search
+- I could of added pagination, so that when the results return we can see all of them instead of the results getting truncated
+- I don't like the 'no duplicate search' rule, it seems unecessary
+- Overall, Good experience making this challenge. It was fun and simple. 
