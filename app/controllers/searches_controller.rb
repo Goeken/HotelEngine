@@ -40,5 +40,6 @@ class SearchesController < ApplicationController
 
   def search_local_movies
   	@movies = Movie.where("title like ?", "%#{params["search"]}%")
+  	return [] if @movies.empty?
   end
 end
