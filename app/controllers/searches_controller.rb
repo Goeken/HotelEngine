@@ -3,7 +3,7 @@ class SearchesController < ApplicationController
   before_action :search_local_movies
 
   # Established the Base URI here and included the api key, hidden in secret credential file
-  BASE_URI = 'https://api.themoviedb.org/3/search/movie?api_key=' + Rails.application.credentials.dig(:movie_api, :access_key) + '&language=en-US&include_adult=false&query='
+  BASE_URI = 'https://api.themoviedb.org/3/search/movie?api_key=' + Rails.application.credentials.dig(Rails.env.to_sym, :movie_api, :access_key) + '&language=en-US&include_adult=false&query='
 	
   # Index method. This will handle the search requests
   def index
