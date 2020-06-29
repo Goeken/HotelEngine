@@ -17,7 +17,7 @@ class SearchesController < ApplicationController
 		return false
 	end
 
-	# Making a request with HTTParty to the Base uri and anything that is added as a param for the search.
+	# Making a request with HTTParty to the Base uri and the string for the search.
 	response = HTTParty.get(BASE_URI + params["search"])
 	@movies = response["results"]
 	# We don't need all the extra information that the API provides, only title and popularity of movie
@@ -26,7 +26,8 @@ class SearchesController < ApplicationController
 	sort_movies if params[:sort]
 
 	# Return movies
-	render json: JSON.pretty_generate(@movies, {object_nl: "\n"})
+	#put this in a concern
+	render json: JSON.pretty_generate(@movies)
   end
 
   private
